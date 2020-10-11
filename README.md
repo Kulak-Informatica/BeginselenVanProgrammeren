@@ -4,7 +4,7 @@ Alles i.v.m. hoor- en werkcolleges van het vak "Beginselen Van Programmeren"
 In deze repository zetten wij, Thibaut en Dieter, onze versies van de opgaven die we krijgen tijdens de oefenzittingen Beginselen van Programmeren.
 De opgaven zijn opgesplitst in twee branches:
 - De branch [master](https://github.com/Kulak-Informatica/BeginselenVanProgrammeren/tree/master) zijn alle opgaven die Thibaut maakt, een student informatica;
-- De branch [Dieter](https://github.com/Kulak-Informatica/BeginselenVanProgrammeren/tree/Dieter) zijn alle opgaven die Dieter maakt, een student burgerlijk ingenieur (fysica).\
+- De branch [Dieter](https://github.com/Kulak-Informatica/BeginselenVanProgrammeren/tree/Dieter) zijn alle opgaven die Dieter maakt, een student burgerlijk ingenieur (fysica).
 
 Je kan van branch verwisselen linksboven de documenten, er staat daar normaal "master" met een pijltje, of je drukt op één van de links hierboven.
 
