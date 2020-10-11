@@ -39,9 +39,3 @@ if not check(lst):
             break
 else:
     print("Geldig")
-
-# Test 3
-
-
-
-
