@@ -6,7 +6,7 @@ De opgaven zijn opgesplitst in twee branches:
 - De branch [master](https://github.com/Kulak-Informatica/BeginselenVanProgrammeren/tree/master) zijn alle opgaven die Thibaut maakt, een student informatica;
 - De branch [Dieter](https://github.com/Kulak-Informatica/BeginselenVanProgrammeren/tree/Dieter) zijn alle opgaven die Dieter maakt, een student burgerlijk ingenieur (fysica).
 
-Als er je iets niet begrijpt is er ook een [Python repository](https://github.com/Kulak-Informatica/Python) waar je een alternatieve cursus kan terugvinden, indien er iets niet duidelijk was in de hoorcolleges.
+Als er je iets niet begrijpt is er ook een [Python repository](https://github.com/Kulak-Informatica/Python) waar je een alternatieve cursus kan terugvinden, indien er iets niet duidelijk was tijdens de hoorcolleges.
 Op termijn zal er een opgaven pdf zijn die nog in ontwikkeling is voor eventuele extra oefeningen.
 
 Er is ook de mogelijkheid om extra oefeningen te bekijken i.v.m. Project Euler, indien geïnteresseerd, kan je ons om toegang vragen.
