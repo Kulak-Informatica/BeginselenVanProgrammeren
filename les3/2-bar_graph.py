@@ -13,5 +13,5 @@ max_value = max(values)
 
 # -- Printing the bars --
 for value in values:
-    # we might be able to use //, but I don't trust that it'll print the same values for small floats (<1)
+    # we might be able to use //, but I don't trust that it'll print the same amount for small floats (<1)
     print(int(value/max_value * 40) * "*")
