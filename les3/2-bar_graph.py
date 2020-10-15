@@ -9,7 +9,7 @@ values = input("Series of numbers, separated using spaces\n?>  ")  # \n stands f
 values = values.split(" ")  # splits a string between all spaces into a list of *(sub)strings* (!not ints or floats!)
 values = [float(i) for i in values]  # converting all elements to floats
 
-max_value = max(values)
+max_value = max(values)  # The largest value out of the list, which will be represented by 40 *
 
 # -- Printing the bars --
 for value in values:
