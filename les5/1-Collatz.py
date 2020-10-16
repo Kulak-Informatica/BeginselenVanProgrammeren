@@ -82,7 +82,7 @@ if not start_is_integer and "y" in input("Are you sure you want to test all 1000
 # if start an integer, execute for one value
 elif start_is_integer and 0 < int(start) <= 1000000:
     step, max_num, average = collatz(int(start))
-    print(f"Starting value:  {start:10d}")
+    print(f"Starting value:  {int(start):10d}")
     print(f"Steps:           {step:10d}")
     print(f"Maximum:         {max_num:10d}")
     print(f"Average:         {average:13.2f}")
