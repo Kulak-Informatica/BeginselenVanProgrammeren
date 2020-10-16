@@ -74,9 +74,9 @@ if not start_is_integer and "y" in input("Are you sure you want to test all 1000
 
     print(f"Largest amount of steps: {max_step[0]}")
     print(f"Reached at: {max_step[1]}")
-    print(f"Largest number reached in: {max_of_max[0]}")
+    print(f"Largest number reached: {max_of_max[0]}")
     print(f"Reached at: {max_of_max[1]}")
-    print(f"Largest average reached in: {max_average[0]}")
+    print(f"Largest average reached: {max_average[0]}")
     print(f"Reached at: {max_average[1]}")
 
 # if start an integer, execute for one value
