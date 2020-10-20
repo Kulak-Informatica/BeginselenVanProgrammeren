@@ -14,8 +14,14 @@ def generate_piles(pile_amount=5, max_pile_size=5):
 
 
 def main():
+    # The program should start with adjusting the settings and starting the game.
+
+    # -- SETTINGS --
+    # Generating the piles got its own function, makes it simpler.
     print("By default, we play with 5 piles with a maximum size of 5 each.")
     change_settings = input("Change these settings? [Y/N]\n> ")
+
+    # - Amount and size of piles -+- Generating piles -
     if "y" in change_settings.lower():
         pile_amount = int(input("Amount of piles:\n>"))
         while not pile_amount > 0:
@@ -25,11 +31,22 @@ def main():
             pile_size = int(input("Please insert a valid size:\n>"))
         print("Generating piles...")
         generate_piles(pile_amount, pile_size)
+        print("Generating complete!")
+        del pile_amount
+        del pile_size
     else:
         print("Generating piles...")
         generate_piles()  # Since I've set default values, this will generate 5 piles with max size 5
+        print("Generating complete!")
+
+    # - Player Amount -
     player_count = int(input("Will you play with [1] or [2] players?\n>"))
     player_vs_player = False
     if player_count == 2:
         player_vs_player = True
+    del player_count
+
+    # -- START THE GAME --
+    # if player_vs_player:
+
 
