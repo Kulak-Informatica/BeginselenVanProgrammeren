@@ -7,9 +7,11 @@ from random import randint
 # First, I'm defining a function to generate the piles.
 # We could make the result a dictionary, but I think a list might be easier
 def generate_piles(pile_amount=5, max_pile_size=5):
+    print("Generating piles...")
     piles = []
     for i in range(pile_amount):
         piles.append(randint(1, max_pile_size))  # each pile will have a random value between 1 and 5 default
+    print("Generating complete!")
     return piles
 
 
@@ -29,15 +31,11 @@ def main():
         pile_size = int(input("Maximum size of a pile:\n>"))
         while not pile_size > 0:
             pile_size = int(input("Please insert a valid size:\n>"))
-        print("Generating piles...")
         generate_piles(pile_amount, pile_size)
-        print("Generating complete!")
         del pile_amount
         del pile_size
     else:
-        print("Generating piles...")
         generate_piles()  # Since I've set default values, this will generate 5 piles with max size 5
-        print("Generating complete!")
 
     # - Player Amount -
     player_count = int(input("Will you play with [1] or [2] players?\n>"))
