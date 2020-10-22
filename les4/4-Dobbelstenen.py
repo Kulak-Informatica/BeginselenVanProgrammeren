@@ -8,14 +8,18 @@ def throw_dice(amount=20):
 
 def find_longest(values):
     # -- Indexes --
-    start = 0  # start of longest series
+    # - The indexes that I use to keep up with where I'm at and where interesting series start
+    start = 0  # start of longest series of equal numbers
     this_start = 0  # start of current series
     index = 1  # index of current digit
 
     # -- Length vars --
+    # - variables to keep up with the length of the longest series and currently tested series
     length = 1  # length of longest series
     this_length = 1  # length of current series
 
+    # We start our loop with the second number, and compare it to the previous.
+    # I already adjusted variables for this case.
     last = values[0]
     for value in values[1:]:
         # if value same as last => current length +1
@@ -53,9 +57,9 @@ def indicate(start, length, elements):
 
 
 def main():
-    die = throw_dice()
-    start, length = find_longest(die)
-    print(indicate(start, length, die))
+    dice = throw_dice()
+    start, length = find_longest(dice)
+    print(indicate(start, length, dice))
 
 
 main()
