@@ -57,7 +57,7 @@ def indicate(start, length, elements):
 
 
 def main():
-    dice = throw_dice()
+    dice = throw_dice()  # if so desired, we can add an argument to throw_dice(amount) to change the amount of dice.
     start, length = find_longest(dice)
     print(indicate(start, length, dice))
 
