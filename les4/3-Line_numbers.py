@@ -11,6 +11,8 @@ def add_line_number(text):
 
 
 def main():
+    # inputfile = input("Name of input:\n> ")
+    # outputfile = input("Name of output:\n> ")
     text = "Hello!\nI am David.\nI am a student, and I am currently studying.\n"
     text += "Studying stands for \"student dying\". Please send help."
 

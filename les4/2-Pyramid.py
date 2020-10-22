@@ -10,6 +10,7 @@ def pyramid(height, symbol="#"):
             print(layer)
 
 
+# The actual new code:
 def main():
     height = int(input("Enter the height of the pyramid:\n> "))
     while height < 1:
