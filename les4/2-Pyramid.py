@@ -11,17 +11,17 @@ def pyramid(height, symbol="#"):
 
 
 def main():
-    height = int(input("Enter the height of the pyramid:\n>"))
+    height = int(input("Enter the height of the pyramid:\n> "))
     while height < 1:
-        height = int(input("Please enter a valid height:\n>"))
-    symbol = input("Please enter the symbol used for the pyramid, or NONE if default should be used:\n>")
+        height = int(input("Please enter a valid height:\n> "))
+    symbol = input("Please enter the symbol used for the pyramid, or NONE if default should be used:\n> ")
 
     if len(symbol) > 1:
         pyramid(height)
     else:
         pyramid(height, symbol)
 
-    print("=" * height * 2 - 1)
+    print("=" * (height * 2 - 1))  # foundation of the pyramid. Otherwise it'll fall apart.
 
 
 main()
