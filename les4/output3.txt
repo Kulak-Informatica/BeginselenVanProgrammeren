@@ -1,0 +1,5 @@
+/* 1 */ Hello!
+/* 2 */ I am David.
+/* 3 */ I am a student, and I'm currently in a class.
+/* 4 */ One thing I learned: this place has no class.
+/* 5 */ Thank you for coming to my TEDTalk.
