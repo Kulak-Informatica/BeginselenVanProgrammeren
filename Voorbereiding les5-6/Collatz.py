@@ -106,25 +106,19 @@ def main():
     while num != 0:
         start = time.time()
         calcSet = [num]
-
-        step = 0
-        maxNum = num
-        countNum = num
         
         while num != 1:
             num = collatz(num)
-            step +=1
-            countNum += num
-            
-            if num>maxNum:
-                maxNum = num
-                
             calcSet += [num]
+            
         Dtime = time.time() - start
         
+        gemiddelde = round(sum(calcSet)/len(calcSet), 2)
+        step = len(calcSet)-1
+        
         print(f"Aantal stappen: {step}")
-        print(f"Maximum: {maxNum}")
-        print(f"Gemiddelde: {round(countNum/(step+1), 2)}")
+        print(f"Maximum: {max(calcSet)}")
+        print(f"Gemiddelde: {gemiddelde}")
         if tfCalc == "j":
             print(f"Tussenresultaten: {calcSet}")
         print(f"Calculation finished in {Dtime} seconds.")
@@ -132,7 +126,6 @@ def main():
         print()
         num = int(input("Geef getal op (0 => exit): \n> "))
         while num < 0:
-            num = int(input("Geef GELDIG getal op (0 => exit): \n> "))      
-    
+            num = int(input("Geef GELDIG getal op (0 => exit): \n> "))    
 
 main()

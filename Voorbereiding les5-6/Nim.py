@@ -15,8 +15,7 @@ def main():
     
     board = generate(a_piles, a_lucifers)
     
-    
-    winner = ""
+
     if input("Wil je tegen de computer spelen? (j/n): \n> ") == "j":
         pl1 = random.choice(["Speler1", "Computer"])
         print("\nJij mag beginnen!") if pl1=="Speler1" else print("\nDe computer mag beginnen!")
@@ -59,7 +58,7 @@ def v1(board, pl):
         v1(board, pl)
    
     else:
-        exitGame(pl1, "v1")
+        exitGame(pl, "v1")
 
 
 def vC(board, pl):
