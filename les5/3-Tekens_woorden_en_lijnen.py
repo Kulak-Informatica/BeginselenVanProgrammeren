@@ -1,5 +1,5 @@
 # als input is het onmogelijk om newlines te creëren.
-# Dus: we maken een definiëren een functie in de plaats:
+# Dus: we definiëren een functie in de plaats:
 
 def wordcount(text):
     text = text.replace("\n", " ")
