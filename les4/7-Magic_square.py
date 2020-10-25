@@ -19,6 +19,7 @@ def check_sum_row(matrix):
     for row in matrix:
         sums[i] = sum(row)
         i += 1  # I just spent 15 minutes rewriting 30% of my code to realise I forgot this.
+        # Next time you see me, please hit me in the head as hard as you can.
     return sums
 
 
