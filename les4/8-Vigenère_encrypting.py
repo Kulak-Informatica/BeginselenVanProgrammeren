@@ -7,11 +7,9 @@ def main():
     decode = input("Decode instead of code? [Y/N] > ").lower()
 
     if "y" in decode.lower():
-        decode = -1
+        print(encode(text, codeword, -1))
     else:
-        decode = 1
-
-    print(encode(text, codeword, decode))
+        print(encode(text, codeword))
 
 
 def chartovar(string):
@@ -42,4 +40,21 @@ def encode(text, codeword, step=1):
     return encrypted
 
 
-main()
+def main_file():
+    inputfile = input("Name of file > ")
+    outputfile = input("Name of output > ")
+    codeword = input("Codeword > ")
+    decode = input("Decode instead of code? [Y/N] > ").lower()
+
+    if "y" in decode.lower():
+        decode = -1
+    else:
+        decode = 1
+
+    with open(inputfile) as file:
+        with open(outputfile, "w") as output:
+            for line in file.readlines():
+                output.write(encode(line, codeword, decode))
+
+
+main_file()
