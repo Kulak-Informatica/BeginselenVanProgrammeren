@@ -8,7 +8,7 @@ De opgaven zijn opgesplitst in twee branches:
 
 Linksboven de documenten kan je van branch verwisselen, er staat daar normaal "Dieter" met een pijltje, of je drukt op één van de links hierboven.
 
-Als er je iets niet begrijpt is er ook een [Python repository](https://github.com/Kulak-Informatica/Python) waar je een alternatieve cursus kan terugvinden, indien er iets niet duidelijk was tijdens de hoorcolleges.
+Als je iets niet begrijpt is er ook een [Python repository](https://github.com/Kulak-Informatica/Python) waar je een alternatieve cursus kan terugvinden, indien er iets niet duidelijk was tijdens de hoorcolleges.
 Op termijn zal er een opgaven pdf zijn die nog in ontwikkeling is voor eventuele extra oefeningen.
 
 Er is ook de mogelijkheid om extra oefeningen te bekijken i.v.m. Project Euler, indien geïnteresseerd, kan je ons om toegang vragen.
