@@ -28,7 +28,7 @@ def check_sum_column(matrix):
     # for each element index, we run through all rows, and add them up:
     # [[0, 1, 2]   first, we add the first elements of each list together
     #  [0, 1, 2]   then, we move to the next column: the second element of each list
-    #  [0, 1, 2]]  so each row, per column => for row in... comes after for column in...
+    #  [0, 1, 2]]  so: sum each row, per column => for column in... before for row in...
     for col_ind in range(0, 4):  # this stands for the element in the sublist
         for row_ind in range(0, 4):  # this stands for the sublist in the matrix
             sums[col_ind] += matrix[row_ind][col_ind]
