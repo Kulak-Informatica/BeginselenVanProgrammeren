@@ -68,3 +68,5 @@ print(check_magic_square(please_work))
 # Attempt 1: didn't work
 # Attempt 2: check_rows is [34, 0, 0, 0], there's the b!tch that makes it turn "False"!
 # Attempt 3: Fixed it. Works. God damn it. It's 2 AM. Why am I doing this?
+
+# in hindsight, might've been able to use the functions we saw in P&O regarding matrices?
