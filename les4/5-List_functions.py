@@ -17,9 +17,9 @@ def shift(series):
 def replaceEvenWithZeros(series):
     replaced = []
     for num in series:
-        if num % 2:
+        if num % 2:  # num % 2 returns 0 if num is even, 0 is seen as False. So: if odd: just add the number.
             replaced.append(num)
-        else:
+        else:  # if not odd, which means it's even, add a 0.
             replaced.append(0)
     return replaced
 
