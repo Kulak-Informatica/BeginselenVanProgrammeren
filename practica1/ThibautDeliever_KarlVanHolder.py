@@ -5,10 +5,10 @@
 ©   Karl Van Holder                     &   Thibaut Deliever
     Bachelor Ingenieurswetenschappen    &   Bachelor Informatica
 
-Ter info: Onze source map noemt 'Bestanden' en de map waar alle txt files komen noemt 'output'.
+Ter info: Onze source map heet 'Bestanden' en de map waar alle txt files komen, heet 'output'.
 Deze dienen op voorhand aangemaakt te worden...
 
-De opdracht is voor ons vrij vlot verlopen, we hebben niet echt problemen ondervonden.
+De opdracht is voor ons vlot verlopen, we hebben niet echt problemen ondervonden.
 """
 
 # Functie die gegeven de locatie van een studentenlijst voor bedrijfsbezoeken naar iMinds, Barco en Bekaert

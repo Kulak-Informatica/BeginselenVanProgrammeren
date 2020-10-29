@@ -13,8 +13,7 @@ def check(lst):
 
     if som % 10 == 0:
         return True
-    else:
-        return False
+    return False
 
 
 
@@ -29,6 +28,8 @@ cc = lst[15]
 for i in range(10):
     if i != cc:
         numlst += [i]
+
+print(numlst)
 
 if not check(lst):
     print("Niet geldig!")
