@@ -66,5 +66,5 @@ def check_magic_square(matrix):
 please_work = [[1, 15, 14, 4], [12, 6, 7, 9], [8, 10, 11, 5], [13, 3, 2, 16]]
 print(check_magic_square(please_work))
 # Attempt 1: didn't work
-# Attempt 2: check_rows is [34, 0, 0, 0], there's the bitch that makes it turn "False"!
+# Attempt 2: check_rows is [34, 0, 0, 0], there's the b!tch that makes it turn "False"!
 # Attempt 3: Fixed it. Works. God damn it. It's 2 AM. Why am I doing this?
