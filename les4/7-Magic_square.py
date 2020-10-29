@@ -29,7 +29,7 @@ def check_numbers(matrix):
     # if this is the same as the maximum, which should be 16, and the minimum is 1,
     # assuming every element is an integer, this means that all elements from 1 to 16 are present.
     # If a larger number was present, it's not equal to the length of the list.
-    # If the minimum is 1, and all integers appear only once, and the max == length: return True
+    # So: if the minimum is 1, and all integers appear only once, and the max == length: return True
     if len(set(list_of_matrix)) == len(list_of_matrix) == max(list_of_matrix) and min(list_of_matrix) == 1:
         return True
     return False
