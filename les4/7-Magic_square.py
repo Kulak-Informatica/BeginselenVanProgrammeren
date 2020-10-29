@@ -70,3 +70,4 @@ print(check_magic_square(please_work))
 # Attempt 3: Fixed it. Works. God damn it. It's 2 AM. Why am I doing this?
 
 # in hindsight, might've been able to use the functions we saw in P&O regarding matrices?
+# Though, those probably used numpy/sympy specific arrays... Which are probably harder to work with
