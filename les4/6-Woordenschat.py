@@ -24,6 +24,8 @@ def add_to_wordcount(word, dictionary):
     return dictionary
 
 
+# [FIXED] Fault in the program: prints amount of *new* words instead of total found words
+# [FIXED] Fault 2: prints all words found in line instead of only new
 def main():
     filename = input("Name of file:\n> ")
     words = set()
@@ -32,9 +34,9 @@ def main():
         print("-=-=-=-=-=-=-=-=-=-=- NEXT -=-=-=-=-=-=-=-=-=-=-")
         print("Verwerkte zin:", line)
         new_words = getWoorden(line)
-        print("Grootte van de nieuwe woordenschat:", len(new_words.difference(words)))
-        print("Nieuwe woorden toegevoegd:", new_words)
-        words.update(new_words)
+        print("Grootte van de nieuwe woordenschat:", len(words.union(new_words)))
+        print("Nieuwe woorden toegevoegd:", new_words.difference(words))
+        words.update(new_words)  # basically the same as union, however, this does not return a value.
         for word in words:
             if word in new_words:
                 wordcount = add_to_wordcount(word, wordcount)
