@@ -104,6 +104,7 @@ def turn_computer(piles, expert=False):
         picked_amount = randint(1, max(piles))
         piles[picked_pile] -= picked_amount
 
+        # will grab even from empty piles
         print_board(piles)
         print(f"Computer took {picked_amount} from pile {picked_pile + 1}")
     else:
@@ -114,7 +115,7 @@ def turn_computer(piles, expert=False):
         for i in range(0, len(piles)):
             if piles[i] ^ nim_sum < piles[i]:
                 pick = [i, (piles[i] ^ nim_sum) - piles[i]]
-        piles[pick[0]] -= pick[1]
+        piles[pick[0]] -= pick[1]  # will return error if pick is empty
         print(f"Computer took {pick[1]} from pile {pick[0] + 1}")
 
 
