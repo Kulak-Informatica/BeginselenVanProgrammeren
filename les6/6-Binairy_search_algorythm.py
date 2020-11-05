@@ -1,6 +1,7 @@
 # extra challenge: instead of taking half every time, and searching from there, take a random guess in the list, and
 # search from there
 def search(lst, num):
+    print(lst)
     length = len(lst)
     if (length == 1 and lst[0] != num) or length == 0:  # the list is empty or the only number isn't our number
         return False
@@ -11,7 +12,7 @@ def search(lst, num):
     guess = lst[index]
     if guess == num:
         return True  # the number is inside the list
-    if guess < num:  # the number might be before our guess, so search from index 0 up till our index
+    if num < guess:  # the number might be before our guess, so search from index 0 up till our index
         return search(lst[:index], num)
 
     # the number isn't the index, and before, so it might be after our index till the end
@@ -24,8 +25,8 @@ def main():
     lst = []
     for i in range(1000):
         lst.append(randint(0, 10000))
+    lst.sort()
     print(search(lst, 666))
-    print(lst)
     print(666 in lst)
 
 
