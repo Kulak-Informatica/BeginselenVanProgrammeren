@@ -1,2 +1,3 @@
 # I want it to be purely one recursive function, but I can't really think of how to do it...
 def average_rec(lst):
+    return
