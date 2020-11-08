@@ -1,19 +1,17 @@
 # -*- coding: utf-8 -*-
 """
+PRACTICUM 1 -- Beginselen van programmeren
 Vereenvoudiging voor het weergeven van informatie over de geplande bedrijfsbezoeken
 :author:    Dieter Demuynck
 :date:      08-11-2020
-:time:      01:05
-
-It took me two hours, and I am not awake. I HAVE to be a masochist to be willing to do this... that's nice :)
-Also, author and date and time here are not official ways to note these down. I don't actually know how. idc rn tho.
 """
 # Bespreking voornaamste moeilijkheden
 #
 # - Het was in het begin onduidelijk of de variabele bedrijfsbezoekenOverzicht
 #   de dictionary is die gevraagd is bij leesInformatieIn(). Ik ga ervan uit van wel. \
 # - Bij printBedrijfsbezoekOverzicht() wordt er gevraagd van te printen, maar ook voor een return waarde. \
-# - Uit gewoonte (en omdat ik dit deels schreef na 00:00) schrijf ik soms nog Engelse commentaar.
+# - Uit gewoonte (en omdat ik dit deels schreef na 00:00) schrijf ik soms nog Engelse commentaar. Niet dat dit een
+#   groot probleem is, maar mogelijks wel irritant voor mijn nederlandstalige prof en de assistent. Mijn excuses.
 
 
 def leesInformatieIn(studentlist_location, companylist_location):
