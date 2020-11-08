@@ -6,6 +6,7 @@ Vereenvoudiging voor het weergeven van informatie over de geplande bedrijfsbezoe
 :time:      01:05
 
 It took me two hours, and I am not awake. I HAVE to be a masochist to be willing to do this... that's nice :)
+Also, author and date and time here are not official ways to note these down. I don't actually know how. idc rn tho.
 """
 # Bespreking voornaamste moeilijkheden
 #
