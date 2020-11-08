@@ -98,7 +98,7 @@ def printBedrijfsbezoekOverzicht():
     Print een overzicht met per bedrijf alle bezoekers in alfabetische volgorde
     :return: Geen, deze functie print alleen.
     """
-    # Neem de values van de var hierboven, verwijder alle duplicates, maak er een gesorteerde list van
+    # Neem de values van de dictionary, verwijder alle duplicates, maak er een gesorteerde list van
     companies = list(set(bedrijfsbezoekenOverzicht.values()))
     companies.sort()
 
@@ -166,16 +166,22 @@ def consoleApplicatie():
                 print(visitor)
 
             print("=" * (32 + len(companyname)))  # ending line
+            # visitor last
             # =====================================
 
         elif invoerGetal == "3":
             # Case 3: print all company visits
             printBedrijfsbezoekOverzicht()
             print("="*40)  # ending line
+            # ========================================
+
         elif invoerGetal == "4":
+            # Case 4: Generate txt per company
             genereerDeelnemerslijsten()
             print("Deelnemerslijsten gegenereerd.")
             print("="*40)  # ending line
+            # ========================================
+
         else:
             print("Ongeldige invoer!")
             
@@ -187,11 +193,11 @@ def genereerDeelnemerslijsten():
         Print een overzicht met per bedrijf alle bezoekers in alfabetische volgorde
         :return: Geen, deze functie print alleen.
         """
-    # Neem de values van de var hierboven, verwijder alle duplicates, maak er een gesorteerde list van
+    # Neem de values van de dictionary, verwijder alle duplicates, maak er een gesorteerde list van
     companies = list(set(bedrijfsbezoekenOverzicht.values()))
     companies.sort()
 
-    # voor elk bedrijf, print alle bezoekers, gesorteerd op naam
+    # voor elk bedrijf, maak een bestand aan, en voeg de bezoekers toe
     for company in companies:
         company_file_name = "deelnemerslijst_" + company + ".txt"
         company_location = "Deelnemerslijsten/" + company_file_name
@@ -199,6 +205,9 @@ def genereerDeelnemerslijsten():
         visitors = list(getBezoekersVoorBedrijf(company))
         visitors.sort()
 
+        # Open het bestand om in the schrijven. Als het bestand nog niet bestaat, wordt het automatisch aangemaakt.
+        # Via "import os" is het ook mogelijk om automatisch de map aan te maken, maar ik ga ervan uit dat dit manueel
+        #   wordt gedaan.
         with open(company_location, "w", encoding="utf8") as company_file:
 
             company_file.write("Deelnemerslijst voor het bedrijfsbezoek aan " + company + "\n")
@@ -216,6 +225,7 @@ def main():
 
     bedrijfsbezoekenOverzicht = {}
 
+    # txt bestanden hou ik bij bij de .py zelf
     studentenlijstFileLocatie = "studenten2020-21.txt"
     bedrijfFileLocatie = "bedrijven2020-21.txt"
     leesInformatieIn(studentenlijstFileLocatie, bedrijfFileLocatie)
