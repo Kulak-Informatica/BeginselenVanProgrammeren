@@ -119,6 +119,7 @@ def consoleApplicatie():
     boodschap = "1: Ga na of een student meegaat naar een bepaald bedrijf\n"
     boodschap += "2: Toon een overzicht van alle bezoekers voor een bepaald bedrijf\n"
     boodschap += "3: Toon een overzicht van alle bedrijfsbezoeken\n"
+    boodschap += "4: Genereer deelnemerslijsten per vedrijf als txt-bestanden in map Deelnemerslijsten/\n"
     boodschap += "0: sluit af\n> "
     
     invoerGetal = input(boodschap)  # needless int() removed, may cause errors if accidental string entered.
@@ -171,10 +172,43 @@ def consoleApplicatie():
             # Case 3: print all company visits
             printBedrijfsbezoekOverzicht()
             print("="*40)  # ending line
+        elif invoerGetal == "4":
+            genereerDeelnemerslijsten()
+            print("Deelnemerslijsten gegenereerd.")
+            print("="*40)  # ending line
         else:
             print("Ongeldige invoer!")
             
         invoerGetal = input(boodschap)
+
+
+def genereerDeelnemerslijsten():
+    """
+        Print een overzicht met per bedrijf alle bezoekers in alfabetische volgorde
+        :return: Geen, deze functie print alleen.
+        """
+    # Neem de values van de var hierboven, verwijder alle duplicates, maak er een gesorteerde list van
+    companies = list(set(bedrijfsbezoekenOverzicht.values()))
+    companies.sort()
+
+    # voor elk bedrijf, print alle bezoekers, gesorteerd op naam
+    for company in companies:
+        company_file_name = "deelnemerslijst_" + company + ".txt"
+        company_location = "Deelnemerslijsten/" + company_file_name
+
+        visitors = list(getBezoekersVoorBedrijf(company))
+        visitors.sort()
+
+        with open(company_location, "w", encoding="utf8") as company_file:
+
+            company_file.write("Deelnemerslijst voor het bedrijfsbezoek aan " + company + "\n")
+
+            for visitor in visitors:
+                company_file.write(visitor + "\n")
+
+        company_file.close()
+
+    return None
 
 
 def main():
@@ -186,6 +220,6 @@ def main():
     bedrijfFileLocatie = "bedrijven2020-21.txt"
     leesInformatieIn(studentenlijstFileLocatie, bedrijfFileLocatie)
     consoleApplicatie()
-    
+
     
 main()
