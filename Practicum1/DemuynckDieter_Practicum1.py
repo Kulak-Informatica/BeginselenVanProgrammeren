@@ -9,23 +9,26 @@ Vereenvoudiging voor het weergeven van informatie over de geplande bedrijfsbezoe
 #
 # - Het was in het begin onduidelijk of de variabele bedrijfsbezoekenOverzicht
 #   de dictionary is die gevraagd is bij leesInformatieIn(). Ik ga ervan uit van wel. \
-# - Bij printBedrijfsbezoekOverzicht() wordt er gevraagd van te printen, maar ook voor een return waarde. \
-# - Uit gewoonte (en omdat ik dit deels schreef na 00:00) schrijf ik soms nog Engelse commentaar. Niet dat dit een
-#   groot probleem is, maar mogelijks wel irritant voor mijn nederlandstalige prof en de assistent. Mijn excuses.
+# - Bij printBedrijfsbezoekOverzicht() wordt er gevraagd van te printen, maar volgens de comments
+#   ook voor een return waarde. \
+# - Uit gewoonte (en omdat ik dit deels schreef na 00:00) schrijf ik soms nog Engelse commentaar. Niet dat dit een groot
+#   probleem is, maar dit is mogelijks wel irritant voor mijn nederlandstalige prof en de assistent. Mijn excuses. \
+# - Is er toevallig een .dic bestand voor het Nederlands? Ik heb er enkele gevonden, maar deze bevatten allesbehalve
+#   alle Nederlandse woorden. Of is er iets anders dat de spellcheck van PyCharm in het Nederlands kan zetten?
 
 
 def leesInformatieIn(studentlist_location, companylist_location):
     """
-    Functie die gegeven de locatie van een studentenlijst voor bedrijfsbezoeken naar iMinds, Barco en Bekaert
+    Functie die, gegeven de locatie van een studentenlijst voor bedrijfsbezoeken naar iMinds, Barco en Bekaert,
     een dictionary maakt met daarin voor elke student uit de lijst het bedrijf dat hij/zij zal bezoeken
     :param studentlist_location: Locatie van de lijst van studenten
     :param companylist_location: Locatie van de lijst van bedrijven
-    :return: Geen. De variabele bedrijfsbezoekenOverzicht neemt deze taak over.
+    :return: Geen. De globale variabele bedrijfsbezoekenOverzicht neemt deze taak over.
     """
     global bedrijfsbezoekenOverzicht
 
-    # Leest de bedrijfslijst en maakt een dict aan voor reeksnummers
-    # te kunnen vertalen naar respectievelijke bedrijfsnamen
+    # Leest de bedrijfslijst en maakt een dict aan om reeksnummers te vertalen naar
+    # de respectievelijke bedrijfsnaam
     with open(companylist_location, "r", encoding="utf8") as companies:
         digit_to_company = dict()  # dictionary om een reeksnummer te vertalen naar een bedrijfnaam
 
@@ -39,7 +42,7 @@ def leesInformatieIn(studentlist_location, companylist_location):
 
             line = companies.readline()  # lees volgende lijn
 
-    companies.close()  # sluit het bestand om efficiënter te kunnen werken
+    companies.close()  # sluit het bestand
 
     with open(studentlist_location, "r", encoding="utf8") as students:
         line = students.readline()
@@ -70,7 +73,7 @@ def isDeelnemerAanBezoek(studentname, companyname):
     :param companyname: naam van het bedrijf
     :return: True als de deelnemer het bedrijf bezoekt, anders False
     """
-    if studentname in bedrijfsbezoekenOverzicht:  # Ander foutmelding bij verkeerde naam/invoer.
+    if studentname in bedrijfsbezoekenOverzicht:  # Anders foutmelding bij verkeerde naam of invoer.
         if bedrijfsbezoekenOverzicht[studentname] == companyname:
             return True
 
@@ -88,7 +91,7 @@ def getBezoekersVoorBedrijf(companyname):
         if companyname == company:
             visitors.add(visitor)
 
-    return visitors  # set met
+    return visitors  # set met de bezoekers van het bedrijf
   
 
 def printBedrijfsbezoekOverzicht():
@@ -119,8 +122,10 @@ def consoleApplicatie():
     boodschap += "3: Toon een overzicht van alle bedrijfsbezoeken\n"
     boodschap += "4: Genereer deelnemerslijsten per vedrijf als txt-bestanden in map Deelnemerslijsten/\n"
     boodschap += "0: sluit af\n> "
-    
-    invoerGetal = input(boodschap)  # needless int() removed, may cause errors if accidental string entered.
+
+    # needless int() removed, may cause errors if accidental string entered, eg. e instead of 3, or a name, when
+    # the user is too hasty
+    invoerGetal = input(boodschap)
     
     while invoerGetal != "0":
         if invoerGetal == "1":
