@@ -1,0 +1,7 @@
+group name	company
+Reeks 1 (Federico Quin)	Barco
+Reeks 2 (Federico Quin)	Barco
+Reeks 3 (Jens Goemaere)	Bekaert
+Reeks 4 (Jens Goemaere)	Bekaert
+Reeks 5 (Tommy Messelis)	Imec
+Reeks 6 (Tommy Messelis)	Imec
