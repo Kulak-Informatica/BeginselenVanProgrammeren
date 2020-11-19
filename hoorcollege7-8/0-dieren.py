@@ -20,7 +20,8 @@ class Dier:
         return self._leeftijd
 
     def __repr__(self):
-        resultaat = "Diersoort " + str(self._soort) + " met naam " + str(self._naam) + " heeft leeftijd " + str(self._leeftijd)
+        resultaat = "Diersoort " + str(self._soort) + " met naam " + str(self._naam)
+        resultaat += " heeft leeftijd " + str(self._leeftijd)
         return resultaat
 
 
@@ -43,6 +44,26 @@ class Verzorger:
 
     def getSetDieren(self):
         return set(self._setDieren)
+
+
+class Zoogdier(Dier):
+
+    def __init__(self, soort, naam, leeftijd, aantal_nipples, aantal_botten):
+        super().__init__(soort, naam, leeftijd)
+        self._aantalNipples = aantal_nipples
+        self._aantalBotten = aantal_botten
+
+    def get_aantal_nipples(self):
+        return self._aantalNipples
+
+    def get_aantal_botten(self):
+        return self._aantalBotten
+
+    def set_aantal_nipples(self, aantal_nipples):
+        self._aantalNipples = aantal_nipples
+
+    def set_aantal_botten(self, aantal_botten):
+        self._aantalBotten = aantal_botten
 
 
 def main():
