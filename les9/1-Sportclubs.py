@@ -1,4 +1,4 @@
-# Please note: I have NOT tested ANY of this.
+# Complete, and tested, and up till this point, it works. Nice.
 # Also note: I didn't stick to cycling only. These are clubs for all types of sports. Why?
 # ....I was an idiot, that's why.
 class Lid:
