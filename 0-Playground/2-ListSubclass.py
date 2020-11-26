@@ -15,12 +15,20 @@ class SpecList(list):
         # if len == 1 -> no effect
         if len(self) > 1:
             self[0], self[-1] = self[-1], self[0]
+        else:
+            raise ValueError("list is either empty or contains only one element")
 
     # Since the shift method basically makes an entirely new variable for self, it's gonna be a little more difficult.
     # Attempting to reassign to self doesn't work (self = ... creates new variable)
+    # EDIT: Just figured out that this is dumb. I can pop the last element and insert in into the first.
     def shift(self):
+        """
+        Shifts all elements one position to the right. Last element becomes first.
+        """
         if len(self) > 1:
-            self[:] = SpecList([self[-1]] + self[0:-1])  # this somehow works. let's check the time.
+            self.insert(0, self.pop())  # pop defaults to index -1. The pop functions removes an element and returns it.
+        else:
+            raise ValueError("list is either empty or contains only one element")
 
 
 def main():
@@ -34,7 +42,7 @@ def main():
     print(empty_thingy)
 
     # testing shift and time it takes
-    shift_thingy = SpecList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    shift_thingy = SpecList(range(1, 11))
 
     from time import time
     start = time()
@@ -42,10 +50,13 @@ def main():
     amount_of_tries = 10000001
     for i in range(amount_of_tries):
         shift_thingy.shift()
+
     stop = time()
     total_time = stop - start
     print(shift_thingy, "(took", round(total_time, 3), "seconds for", amount_of_tries, "iterations)")
     # takes about 2 seconds for 1'000'000 iterations, about 20 seconds for 10'000'000 iterations. Seems linear.
+    # EDIT: Just made it a bit faster. Now it only takes 5 seconds for 10'000'001 iterations.
+    # At least, if the list is 10 elements long. I tried ten million. It took at least one hour. *At least*.
 
 
 main()
