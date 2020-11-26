@@ -1,4 +1,59 @@
 # Please note: I have NOT tested ANY of this.
+# Also note: I didn't stick to cycling only. These are clubs for all types of sports. Why?
+# ....I was an idiot, that's why.
+class Lid:
+
+    _idnumber = 0
+
+    # - Initialise -
+    def __init__(self, naam):
+        self.naam = naam
+        self.registratienummer = Lid._idnumber
+        Lid._idnumber += 1
+
+    # - Getters -
+    def getNaam(self):
+        return self.naam
+
+    def getRegistratienummer(self):
+        return self.registratienummer
+
+
+# We moeten niks bijhouden voor deze klassen :(
+class Event:
+    pass
+
+
+class Activiteit(Event):
+    pass
+
+
+class Uitstap(Event):
+    pass
+
+
+class Wedstrijd(Event):
+
+    # Adding this in so I can keep track of which competition is which
+    _wedstrijd_id = 0
+
+    # - Initialise -
+    def __init__(self, lid_resultaat):
+        self.leden_en_resultaten = lid_resultaat
+        self.wedstrijd_id = Wedstrijd._wedstrijd_id
+        Wedstrijd._wedstrijd_id += 1
+
+    # - Getters -
+    def getLeden(self):
+        return list(self.leden_en_resultaten.keys())
+
+    def getLedenEnResultaten(self):
+        return self.leden_en_resultaten
+
+    def __repr__(self):
+        return "Wedstrijd " + str(self.wedstrijd_id)
+
+
 class Club:
     # - Initialise -
     def __init__(self, naam, ledenlijst):
@@ -12,33 +67,8 @@ class Club:
     def getLedenlijst(self):
         return self.ledenlijst
 
-
-class Lid:
-    # - Initialise -
-    def __init__(self, naam, id):
-        self.naam = naam
-        self.registratienummer = id
-
-    # - Getters -
-    def getNaam(self):
-        return self.naam
-
-    def getRegistratienummer(self):
-        return self.registratienummer
-
-
-
-class Wedstrijd:
-    # - Initialise -
-    def __init__(self, lid_resultaat):
-        self.leden_en_resultaten = lid_resultaat
-
-    # - Getters -
-    def getLeden(self):
-        return list(self.leden_en_resultaten.keys())
-
-    def getLedenEnResultaten(self):
-        return self.leden_en_resultaten
+    def __repr__(self):
+        return "*C*" + self.naam
 
 
 class Amateurclub(Club):
@@ -72,7 +102,7 @@ class Profclub(Club):
 
         deelnames = []
         for wedstrijd in self.wedstrijdenlijst:
-            if lid in wedstrijd:
+            if lid in wedstrijd.getLeden():
                 deelnames.append(wedstrijd)
         return deelnames
 
@@ -115,7 +145,8 @@ def amateurclubsMetTweeProfs(amateurclubs, profclubs):
     # Haal alle leden uit de profclubs en verzamel ze in een lijst
     profspelers = set()
     for club in profclubs:
-        set().update(club.getLedenlijst)
+        ledenlijst = club.getLedenlijst()
+        set().update(ledenlijst)
 
     # bekijk alle amateurclubs
     for club in amateurclubs:
@@ -140,4 +171,56 @@ def amateurclubsMetTweeProfs(amateurclubs, profclubs):
 
 
 def main():
-    pass
+    # Random bullshit, GO
+
+    # - Leden -
+    henry = Lid("Henry")
+    julie = Lid("Julie")
+    manon = Lid("Manon")
+    amber = Lid("Amber")  # up till now they're all 5 letter names. Let's keep it going.
+    jerry = Lid("Jerry")
+    shawn = Lid("Shawn")
+    dimme = Lid("Dimme")  # self-insert, with lucky 7
+    drake = Lid("Drake")
+    jeoff = Lid("Jeoff")
+    robbe = Lid("Robbe")  # sommige van deze namen zijn mensen die ik ken. Puur toeval. I swear. (pls dont kill me)
+
+    # - Events -
+    # * Activiteiten en uitstappen *
+    club_competitie = Activiteit()
+    nationale_training = Uitstap()
+
+    # * Wedstrijden *
+    karate_vlaams = Wedstrijd({dimme: 1, robbe: 2, manon: 3})  # sorry manon, maar dit is de enige keer dat je voorkomt
+    tennis_vlaams = Wedstrijd({jeoff: 1, amber: 2, jerry: 3})
+    tennis_belgisch = Wedstrijd({jeoff: 1, amber: 2, dimme: 3, jerry: 17})
+    # legend: {karate_vlaams: 0, tennis_vlaams: 1, tennis_belgisch: 2}
+
+    # - Amateurclubs -
+    karate_waregem = Amateurclub("KC Waregem", [dimme, julie, shawn, drake], [club_competitie, nationale_training])
+    tennis_kortrijk = Amateurclub("TC Kortrijk", [shawn, jeoff, amber, jerry], [club_competitie, nationale_training])
+
+    # - Profclubs -
+    karate_nationale_club = Profclub("NatKClub", [dimme, robbe, henry, jeoff], [karate_vlaams])
+    tennis_nationale_club = Profclub("NatTClub", [dimme, jeoff, amber, jerry], [tennis_vlaams, tennis_belgisch])
+
+    # - Clublijsten -
+    amateurclubs = [karate_waregem, tennis_kortrijk]
+    profclubs = [karate_nationale_club, tennis_nationale_club]
+
+    # - And finally: the test itself -
+
+    # TEST 1 - Alle wedstrijden waaraan bepaald lid heeft deelgenomen:
+    print(tennis_nationale_club.deelnamesVanLid(dimme))  # expected result: [tennis_belgisch (ID 2)]
+    print(tennis_nationale_club.deelnamesVanLid(amber))  # expected result: [tennis_vlaams, tennis_belgisch (ID 1, 2)]
+
+    # TEST 2 - Wedstrijden waarvan deelnemende leden van profclub alle in top 10:
+    print(karate_nationale_club.alleInTop10())  # expected result: [karate_vlaams (ID 0)]
+    print(tennis_nationale_club.alleInTop10())  # expected result: [tennis_vlaams (ID 1)]
+
+    # TEST 3 - Amateurclubs met minstens twee leden in profclub(s): TODO: Fix this.
+    print(amateurclubsMetTweeProfs(amateurclubs, profclubs))  # expected result: [tennis_kortrijk]
+# -- end of main() ------------------------------------------------------------------------
+
+
+main()
