@@ -18,6 +18,9 @@ class Lid:
     def getRegistratienummer(self):
         return self.registratienummer
 
+    def __repr__(self):
+        return "Lid " + self.naam
+
 
 # We moeten niks bijhouden voor deze klassen :(
 class Event:
@@ -68,7 +71,7 @@ class Club:
         return self.ledenlijst
 
     def __repr__(self):
-        return "*C*" + self.naam
+        return "*Club* " + self.naam
 
 
 class Amateurclub(Club):
@@ -146,7 +149,7 @@ def amateurclubsMetTweeProfs(amateurclubs, profclubs):
     profspelers = set()
     for club in profclubs:
         ledenlijst = club.getLedenlijst()
-        set().update(ledenlijst)
+        profspelers.update(ledenlijst)
 
     # bekijk alle amateurclubs
     for club in amateurclubs:
@@ -218,7 +221,7 @@ def main():
     print(karate_nationale_club.alleInTop10())  # expected result: [karate_vlaams (ID 0)]
     print(tennis_nationale_club.alleInTop10())  # expected result: [tennis_vlaams (ID 1)]
 
-    # TEST 3 - Amateurclubs met minstens twee leden in profclub(s): TODO: Fix this.
+    # TEST 3 - Amateurclubs met minstens twee leden in profclub(s):
     print(amateurclubsMetTweeProfs(amateurclubs, profclubs))  # expected result: [tennis_kortrijk]
 # -- end of main() ------------------------------------------------------------------------
 
