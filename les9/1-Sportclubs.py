@@ -1,3 +1,4 @@
+# Please note: I have NOT tested ANY of this.
 class Club:
     # - Initialise -
     def __init__(self, naam, ledenlijst):
@@ -79,7 +80,7 @@ class Profclub(Club):
         # De wedstrijden waarin alle deelnemende leden van de club in de top 10 zitten:
         goede_wedstrijden = []
 
-        # We bekijken elke wedstrijd in de lijst van de wedstrijden waaraan zijn deelgenomen door de club
+        # We bekijken elke wedstrijd in de lijst van de wedstrijden waar aan zijn deelgenomen door de club
         for wedstrijd in self.wedstrijdenlijst:
 
             # We gaan er eerst van uit dat elk lid in de top 10 zit
@@ -99,3 +100,44 @@ class Profclub(Club):
 
         # Na de uiterste for lus hebben we de lijst van alle wedstrijden met alle deelnemers van de club in de top 10.
         return goede_wedstrijden
+
+
+# Aangezien er een lijst nodig is met amateur- en profclubs, moet dit dus een aparte functie zijn.
+def amateurclubsMetTweeProfs(amateurclubs, profclubs):
+    """
+    Test alle amateurclubs om te kijken of er minstens twee leden zijn die ook in een profclub zitten.
+    :param amateurclubs: Lijst van alle amateurclubs
+    :param profclubs: Lijst van alle profclubs
+    :return: Lijst van alle amateurclubs met minstens twee leden uit profclubs
+    """
+    geldige_amateurclubs = []
+
+    # Haal alle leden uit de profclubs en verzamel ze in een lijst
+    profspelers = set()
+    for club in profclubs:
+        set().update(club.getLedenlijst)
+
+    # bekijk alle amateurclubs
+    for club in amateurclubs:
+
+        aantal_profs = 0
+        minstens_twee_profs = False
+
+        # bekijk alle leden, of ze in een profclub zitten.
+        for lid in club.getLedenlijst():
+            if lid in profspelers:
+                aantal_profs += 1
+
+            # als er twee zijn, is de club geldig en mag in de lijst. Verder leden checken heeft geen nut.
+            if aantal_profs == 2:
+                minstens_twee_profs = True
+                break
+
+        if minstens_twee_profs:
+            geldige_amateurclubs.append(club)
+
+    return geldige_amateurclubs
+
+
+def main():
+    pass
