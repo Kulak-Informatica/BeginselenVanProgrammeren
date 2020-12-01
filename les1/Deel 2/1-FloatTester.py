@@ -3,14 +3,17 @@ num = float(input("Float: "))
 if num == 0:
     print("Dit getal is nul.")
 else:
-    size = ""
-    charge= ""
+    text = ""
+
+    # test the size
     if abs(num) > 100000:
-        size = "groot "
+        text += "groot "
     elif abs(num) < 1:
-        size = "klein "
+        text += "klein "
+
+    # test the sign
     if num > 0:
-        charge = "positief"
+        text += "positief"
     else:
-        charge = "negatief"
-    print("Dit is een {}{} getal".format(size, charge))
+        text += "negatief"
+    print(f"Dit is een {text} getal")

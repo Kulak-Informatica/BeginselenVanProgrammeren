@@ -3,6 +3,17 @@
 # Example: "1234 5678 1234 5670".replace(" ", "") ==  "12345678912345670"
 # This means that any misplaced or unnecessary spaces will have no effect on the program
 cardnumb = input("Please enter a valid card number.\nCard number: ").replace(" ", "")
+is_number = False
+
+# testing to see if the input is indeed a number:
+while not is_number:
+    try:  # This means we expect to potentially get an error
+        h = int(cardnumb)  # if cardnumb is not a strict number, this will return a ValueError
+    except ValueError:  # if a ValueError is found, do this instead:
+        cardnumb = input("Invalid input. Try again:\nCard number: ")  # ask for another input
+    else:  # if no errors were found in the try clause, continue. (separate to not catch any errors we didn't expect)
+        is_number = True  # essentially: stop the while loop
+        del h  # delete the help variable
 
 # indicator to check if index of number is even or odd
 even = True

@@ -1,8 +1,9 @@
-def getWoorden(line):
+def getWoorden(line):  # line, bv "Hallo, dit is een string.\nDit is een nieuwe lijn."
     from string import punctuation
-    words = line.split()
-    clean_words = set()
-    for word in words:
+    words = line.split()  # words in line, bv. ["Hallo," , "dit", "is", ...]
+    clean_words = set()  # lege set
+    for word in words:  # doorloop elk woord in words (bv. eerst "Hallo,", dan "dit", dan...)
+        # voeg toe aan de lege set: het woord, zonder hoofdletters, zonder leestekens
         clean_words.add(word.lower().strip(punctuation))
 
     return clean_words

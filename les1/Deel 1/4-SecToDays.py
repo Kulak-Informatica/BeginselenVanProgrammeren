@@ -6,10 +6,4 @@ minutes = (total // 60) % 60
 hours = (total // 60 // 60) % 24
 days = total // 60 // 60 // 24
 
-
-
-
-
-
-
 print("{} days, {} hours, {} minutes and {} seconds.".format(days, hours, minutes, seconds))

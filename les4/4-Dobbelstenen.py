@@ -41,23 +41,56 @@ def find_longest(values):
     return start, length
 
 
-def stringify_list(non_string_list):
-    string_list = []
-    for element in non_string_list:
-        string_list.append(str(element))
-    return string_list
+# Here you find bad code. This code has to search for a certain index in the list twice,
+# then runs through the entire list once, then runs through the entire list again, joining the elements
+# and then it also has to search for 2 strings of code and replace both.
+# It would be a lot simpler if I just run through the entire list once, check if I'm at a certain index,
+# and add brackets on those indexes. Oh, and turn each element into a string *during* the loop.
 
+# def stringify_list(non_string_list):
+#     string_list = []
+#     for element in non_string_list:
+#         string_list.append(str(element))
+#     return string_list
+#
+#
+# def indicate(start, length, elements):
+#     elements.insert(start, "(")
+#     elements.insert(start + length + 1, ")")
+#     elements = stringify_list(elements)
+#     indicated = " ".join(elements).replace("( ", "(").replace(" )", ")")
+#     return indicated
 
 def indicate(start, length, elements):
-    elements.insert(start, "(")
-    elements.insert(start + length + 1, ")")
-    elements = stringify_list(elements)
-    indicated = " ".join(elements).replace("( ", "(").replace(" )", ")")
-    return indicated
+    indicated_string = ""
+    end = start + length - 1  # if start == end, then end == start + length (= +1) - 1
+    last_index = len(elements) - 1  # the index of the last number
+    i = 0  # Current index of the loop
+
+    for element in elements:
+        # the number we're at is the start of the longest: add an opening bracket
+        if i == start:
+            indicated_string += "("
+
+        # add the number
+        indicated_string += str(element)
+
+        # the number we're at is the end of the longest: add a closing bracket
+        if i == end:
+            indicated_string += ")"
+
+        # the number we're at is not the last: add a space between this number and the next
+        if i != last_index:
+            indicated_string += " "
+
+        # update the index for the next number
+        i += 1
+
+    return indicated_string
 
 
 def main():
-    dice = throw_dice()  # if so desired, we can add an argument to throw_dice(amount) to change the amount of dice.
+    dice = throw_dice(20)  # if so desired, we can add an argument to throw_dice(amount) to change the amount of dice.
     start, length = find_longest(dice)
     print(indicate(start, length, dice))
 

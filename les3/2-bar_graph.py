@@ -5,9 +5,9 @@
 # My idea of doing this is to let the user first input a series of numbers,
 # separated by spaces, and using the str.split method to create a list:
 
-values = input("Series of numbers, separated using spaces\n?>  ")  # \n stands for a newline
+values = input("Series of numbers, separated using spaces\n>  ")  # \n stands for a newline
 values = values.split(" ")  # splits a string between all spaces into a list of *(sub)strings* (!not ints or floats!)
-values = [float(i) for i in values]  # converting all elements to floats
+values = [float(i) for i in values]  # converting all elements to floats, by making a new list based on old "values"
 
 max_value = max(values)  # The largest value out of the list, which will be represented by 40 *
 
