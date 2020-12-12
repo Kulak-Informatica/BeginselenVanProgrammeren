@@ -27,8 +27,9 @@ class Student:
     def add_exam(self, exam):
         self._exams.append(exam)
 
-    def calc_total_score(self):
-        pass
+    def total_score(self):
+
+        return None
 
 
 class Exam:
@@ -68,7 +69,6 @@ class Course:
         self._points = points
         self._weightfactor = weightfactor
 
-
     def get_name(self):
         return self._name
 
@@ -103,8 +103,8 @@ def main():
     print("Het examen voor Filo heeft een totale score van", ex_filo.calc_total_score())
     igor.add_exam(ex_filo)
 
-    print("De totale score van " + igor.get_firstname()+" is: " + str(round(igor.calc_total_score(), 2)) + " procent.")
+    print("De totale score van " + igor.get_firstname()+" is: " + str(round(igor.total_score(), 2)) + " procent.")
 
 
-# start de main
+# start the main method
 main()
