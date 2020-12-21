@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 
 # Bespreek hier kort (in enkele regels) je voornaamste moeilijkheden
 """
@@ -46,11 +46,11 @@ def leesInformatieIn(studentenlijstFileLocatie, bedrijfFileLocatie):
         tempDict[prof] = lijn[1]
 
     """
-    In deze forlus overloop ik de studentenlijst. Mijn variabele 'lijn' is een lijst van alle elementen van een regel 
-    in de grote gehele studentenlijst. Hierbij splits ik elk element op de tab, waardoor ik nr, voornaam, achternaam,
-    email en reeks kan opdelen van elkaar. Ik genereer enkele variabelen zoals naam die ik gebruik om mijn dictionary 
-    op te bouwen. Ik kan dezelfde redenering volgen (voor de reeksbepaling) zoals hierboven. Zo kan ik uit mijn tempDict
-    bepalen welke leerling naar welk bedrijf mag gaan. Dit werkt helaas niet voor de leerkrachten, hiervoor maak ik via een
+    In deze forlus overlopen we de studentenlijst. De variabele 'lijn' is een lijst van alle elementen van een regel 
+    in de grote studentenlijst. Hierbij splitsen we elk element op de tab, waardoor we nr, voornaam, achternaam,
+    email en reeks kunnen opdelen van elkaar. Dan genereren we enkele variabelen zoals naam die we gebruik om de dictionary 
+    verder op te bouwen. Dezelfde redenering kan gevolgd worden (voor de reeksbepaling) zoals hierboven. Zo kunnen we uit de tempDict
+    bepalen welke leerling naar welk bedrijf mag gaan. Dit werkt helaas niet voor de proffen, hiervoor maakten we via een
     if-statement een uitzondering
     """
     for i in studentenLijst:
@@ -75,7 +75,7 @@ def isDeelnemerAanBezoek(deelnemersnaam, bedrijfsnaam):
     global bedrijfsbezoekenOverzicht
 
     """
-    Met deze if zoeken we in de globale dictionary als de naam uberhaupt geregistreerd staat, zoja kunnen we pas checken
+    Met deze if zoeken we in de globale dictionary als de naam uberhaupt geregistreerd staat. Indien ja, dan pas kunnen we checken
     naar waar deze persoon gaat en als dit overeenkomt met het gevraagde bedrijf.
     """
     if deelnemersnaam in bedrijfsbezoekenOverzicht.keys() and bedrijfsbezoekenOverzicht[deelnemersnaam] == bedrijfsnaam:
@@ -88,8 +88,8 @@ def getBezoekersVoorBedrijf(bedrijfsnaam):
     global bedrijfsbezoekenOverzicht
 
     """
-    returnList is een geïnitialiseerde lijst die ik invul met de volgende forlus. Deze overloopt elke key en value van de
-    dictionary en controleert als de value overeenkomt met het gevraagde bedrijf. Indien dit zo is, voegt het de persoon
+    returnList is een geïnitialiseerde lijst die we invullen met de volgende forlus. Deze overloopt elke key en value van de
+    dictionary en controleert als de value overeenkomt met het gevraagde bedrijf. Indien dit waar is, voegt het de persoon
     in kwestie toe aan de lijst die wordt teruggegeven op het einde van de functie.
     """
     returnList = []
@@ -142,7 +142,7 @@ def genereerDeelnemerslijsten():
     We genereren opnieuw een lijst van alle mogelijke bedrijven en slaan deze op in een lijst genaamd 'bedrijven'. Nadien
     bekijken we bedrijf per bedrijf wie dat de deelnemers zijn (gesorteerd op achternaam) en deze staan opgeslagen in de
     variabele 'deelnemersLijst'. Dan maken we een relatieve locatie op waar de file zich zou opslaan en maken we 1 lange string
-    tekst op die wordt overgeschreven in de txt file.
+    tekst op die wordt neergeschreven in de txt file.
     """
 
     bedrijven = []

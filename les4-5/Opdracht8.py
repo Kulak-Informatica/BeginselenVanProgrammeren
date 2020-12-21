@@ -1,5 +1,5 @@
 def coderen(l1, l2, TF):
-    geheugen = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u",
+    geheugen = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "lst", "t", "u",
                 "v", "w", "x", "y", "z"]
     if l1 not in geheugen:
         return l1
