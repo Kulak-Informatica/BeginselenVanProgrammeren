@@ -35,27 +35,31 @@ def find_longest(values):
     # That is why I've named all my "runner variables" to start with "this_"
 
     # -= The Databank =-
-    # These keep track of the values we might be interested in. If we found a series with length 3, the runners might
-    # find more series with length of 4 or more, but until they do, we can't say for certain if there's a longer series.
-    # That's why the databank exists: up until this point, what's the longest series the runners found?
-    # At the end of the loop or the end of the list, these will be the variables that we we're looking for.
-    # Because these are the "important" variables, I've given them simple names, such as "start" and "length"
+    # These variables are the ones we're interested in, since they are the ones which tell us where the longest series
+    # is. They update every time the runners find a new, longer series.
+    # Example:
+    # Let's say the runners found a series starting at index 7 with length 3 (so at index 7-8-9 we have the same number)
+    # The numbers 7 and 3 are stored in "start" and "length", the two "databank variables". The runners are still
+    # running through the list, and find another series at index 16, they continue and find the same number on 17, 18,
+    # and 19, and therefore found a series at index 16 with length 4. Because the length is longer, we need to save
+    # these to the databank variables. If we continue and no longer series is found, then we know the longest series is
+    # at index 16 with length 4.
 
     # -= The Code =-
 
-    # -- Index vars --
-    # - The indexes that I use to keep up with where I'm at and where an interesting series start
-    start = 0  # start of longest series of equal numbers (DATABANK)
-    this_start = 0  # start of current series (RUNNER)
-    index = 1  # index of current digit (Technically runner as well)
+    # -- The Runners --
+    # - During the loop, how long is the current series, and where does it start?
+    this_start = 0  # start of current series
+    this_length = 1  # length of current series
 
-    # -- Length vars --
-    # - variables to keep up with the length of the longest series and currently tested series
-    length = 1  # length of longest series (DATABANK)
-    this_length = 1  # length of current series (RUNNER)
+    # -- The Databank --
+    # - What's the longest series found by the runners so far?
+    start = 0  # start of longest series of equal numbers
+    length = 1  # length of longest series
 
     # We start our loop with the second number, and compare each number to the previous.
     # That's why i've set index and the lengths to 1 instead of 0
+    index = 1  # index of current digit that the runners check and compare
     last = values[0]
     for value in values[1:]:
         # if value same as last => current length +1
@@ -77,11 +81,10 @@ def find_longest(values):
     return start, length
 
 
-# Here you find bad code. This code has to search for a certain index in the list twice,
-# then runs through the entire list once, then runs through the entire list again, joining the elements
-# and then it also has to search for 2 strings of code and replace both.
-# It would be a lot simpler if I just run through the entire list once, check if I'm at a certain index,
-# and add brackets on those indexes. Oh, and turn each element into a string *during* the loop.
+# Some old code I considered bad and updated. I'm fairly certain this is bad code, because it runs through
+# each element, turns it into a string, and then inserts the brackets and joins them together,
+# while the newer code turns each element into a string and *immediately* joins them together, adding a bracket where
+# needed.
 
 # def stringify_list(non_string_list):
 #     string_list = []
@@ -126,7 +129,7 @@ def indicate(start, length, elements):
 
 
 def main():
-    dice = throw_dice(20)  # if so desired, we can add an argument to throw_dice(amount) to change the amount of dice.
+    dice = throw_dice()  # by default this will give a list of 20 numbers, but we can add an argument to change that
     start, length = find_longest(dice)
     print(indicate(start, length, dice))
 
