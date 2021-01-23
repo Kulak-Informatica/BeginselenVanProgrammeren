@@ -8,7 +8,7 @@ def tax_divider(newtax):
 def main():
     # It's possible to do this with a bunch of if statements, however, good programmers always think ahead:
     # If the taxes change or there's a new tax implemented, all we have to do to "fix" this code is add or change
-    # one simple number.
+    # one simple number to the list of "newtax".
     income = float(input("Income: "))
     newtax = [50_000, 75_000, 100_000, 250_000, 500_000]  # underscores are ignored -> use for better readability
     taxes = 0
