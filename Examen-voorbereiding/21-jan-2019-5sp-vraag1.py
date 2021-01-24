@@ -80,7 +80,7 @@ def histogram(rooster, positie, orientatie):
         print(f"STEPS: {i + 1:03d} | " + f"{'#' * int(succeeded // 10):10s}" + f" ({succeeded:03d})")
 
 
-def main():
+def example_run_robot():
     rooster = [[0, 0, 0, 0, 0, 0],
                [0, 1, 1, 0, 2, 0],
                [0, 0, 1, 0, 1, 0],
@@ -98,4 +98,4 @@ def main():
     histogram(rooster, begin_positie, orientatie)
 
 
-main()
+example_run_robot()
