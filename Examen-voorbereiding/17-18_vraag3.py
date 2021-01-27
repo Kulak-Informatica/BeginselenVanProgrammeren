@@ -20,14 +20,13 @@ def mo(a, b):
     # for vb in b: p += vb * sum_of_a
     #
     # q kan herschreven worden als q += (va**2) + (2*va*vb) + (vb**2) voor elke va in a, voor elke vb in b.
-    # Het dubbel product is gelijkaardig aan p, want, na elke va en vb, is de some van al die termen gelijk aan
+    # Het dubbel product is gelijkaardig aan p, want, na elke va en vb, is de som van al die termen gelijk aan
     # 2 * p. Dan hoeven we enkel, op een gelijkaardige manier als s, nog de termen va**2 en vb**2 toe te voegen. Dus:
     # for va in a: q += (va**2) * len(b)
     # for vb in b: q += (vb**2) * len(a)
     # q += 2 * p
     #
     # Op die manier lopen we 1 keer door de a-lijst en 1 keer door de b-lijst, ipv voor elke va door de b-lijst te gaan.
-    # stel n = len(a) en m = len(b)
     for va in a:
         s += va * len(b)
         sum_of_a += va
