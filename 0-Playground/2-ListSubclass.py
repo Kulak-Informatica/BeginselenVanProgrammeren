@@ -20,7 +20,7 @@ class SpecList(list):
 
     # Since the shift method basically makes an entirely new variable for self, it's gonna be a little more difficult.
     # Attempting to reassign to self doesn't work (self = ... creates new variable)
-    # EDIT: Just figured out that this is dumb. I can pop the last element and insert in into the first.
+    # EDIT: Just figured out that this is dumb. I can pop the last element and insert it into the first.
     def shift(self):
         """
         Shifts all elements one position to the right. Last element becomes first.
@@ -33,7 +33,7 @@ class SpecList(list):
 
 def main():
     # testing swap and print of SpecList
-    new_thingy = SpecList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    new_thingy = SpecList(range(1, 11))
     new_thingy.swap()
     print(new_thingy)
 
