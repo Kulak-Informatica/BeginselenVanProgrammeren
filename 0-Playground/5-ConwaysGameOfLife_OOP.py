@@ -13,16 +13,17 @@ class Grid:
         self.grid = np.zeros((row_count, col_count))
         self.iteration = 0
 
-    def add_glider(self, row_i, col_i):
+    def add_glider(self, row_i, col_i, rotation=0):
         # test to see if possible:
         row_c, col_c = self.grid.shape
         if row_i > row_c - 3 or col_i > col_c - 3:
             raise IndexError("glider out of game bounds")
 
         # all good, add a glider
-        glider = np.array([[0, 1, 0],
-                           [0, 0, 1],
-                           [1, 1, 1]])
+        glider = np.rot90(np.array([[0, 1, 0],
+                                    [0, 0, 1],
+                                    [1, 1, 1]]),
+                          rotation)
         self.grid[row_i:row_i + 3, col_i:col_i + 3] = glider
 
     def __repr__(self):
